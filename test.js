@@ -76,6 +76,53 @@ async function deletarProduto() {
     console.error("Erro ao deletar produto:", error);
   }
 }
+async function criarCliente() {
+  const data = {
+    id: 1,
+    nome: "Murilo",
+    sobrenome: "Bizin",
+    cpf: "823.060.880-63", // CPF handle 4devs.com.br/gerador_de_cpf
+  };
+
+  try {
+    const response = await fetch("http://localhost:3000/cadastrarCliente", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await response.text();
+    console.log(result);
+  } catch (error) {
+    console.error("Erro ao criar cliente:", error);
+  }
+}
+
+async function criarVenda() {
+  const data = {
+    Cliente: {
+      id: 1,
+      nome: "Murilo",
+      sobrenome: "Bizin",
+      cpf: "823.060.880-63", // CPF handle 4devs.com.br/gerador_de_cpf
+    },
+  };
+
+  try {
+    const response = await fetch("http://localhost:3000/cadastrarVenda", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await response.text();
+    console.log(result);
+  } catch (error) {
+    console.error("Erro ao criar venda:", error);
+  }
+}
 // Run  tests
 (async () => {
   await criarProduto();
@@ -83,4 +130,6 @@ async function deletarProduto() {
   await buscarProduto();
   await atualizarProduto();
   await deletarProduto();
+  await criarCliente();
+  await criarVenda();
 })();
