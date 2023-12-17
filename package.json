@@ -1,0 +1,18 @@
+{
+  "name": "tictrilhas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": " nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http": "0.0.1-security",
+    "node-fetch": "^2.7.0",
+    "sequelize": "^6.35.2",
+    "sqlite3": "^5.1.6"
+  }
+}
