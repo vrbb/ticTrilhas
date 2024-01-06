@@ -1,5 +1,5 @@
 // test.js
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 
 async function criarProduto() {
   const data = {

@@ -1,5 +1,5 @@
-const http = require("http");
-const {
+import http from "http";
+import {
   sequelize,
   insertProduto,
   readProdutos,
@@ -12,7 +12,7 @@ const {
   updateCliente,
   deleteCliente,
   insertVenda,
-} = require("./models");
+} from "./models";
 
 const hostname = "127.0.0.1";
 const port = 3000;
