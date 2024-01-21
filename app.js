@@ -13,6 +13,8 @@ import {
   deleteCliente,
   insertVenda,
 } from "./models";
+import { serve, setup } from "swagger-ui-express";
+import swaggerDocument from "./swagger.json" assert { type: "json" };
 
 const hostname = "127.0.0.1";
 const port = 3000;
@@ -207,6 +209,7 @@ const cadastrarVenda = async (req, res) => {
 };
 (async () => {
   await sequelize.sync();
+  app.use("/docs", serve, setup(swaggerDocument));
 
   const server = http.createServer(async (req, res) => {
     //Produto
